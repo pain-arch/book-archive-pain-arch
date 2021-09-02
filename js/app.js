@@ -4,10 +4,13 @@ const loadBooks = () => {
     const bookTitle = document.getElementById('book-title');
     const searchText = bookTitle.value;
 
+     console.log(searchText);
+
     const url =`https://openlibrary.org/search.json?q=${searchText}`;
     fetch(url)
     .then(res => res.json())
     .then(data => showBooks(data.docs.slice(0,20),data.docs.length))
+
 
     bookTitle.value = '';
 };
